@@ -37,10 +37,12 @@
                                 <a href="{{ route('books.edit', $book->BookID) }}" class="btn btn-sm btn-outline-primary">
                                     <i class="bi bi-pencil"></i> Edit
                                 </a>
-                                <form action="{{ route('books.destroy', $book->BookID) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this book?');">
+                                <form action="{{ route('books.destroy', $book->BookID) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <button type="button" class="btn btn-sm btn-outline-danger"
+                                            data-bs-toggle="modal" data-bs-target="#confirmModal"
+                                            data-confirm-message="Are you sure you want to delete this book?">
                                         <i class="bi bi-trash"></i> Delete
                                     </button>
                                 </form>

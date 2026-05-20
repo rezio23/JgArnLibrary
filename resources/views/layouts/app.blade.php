@@ -68,7 +68,9 @@
                         <li class="nav-item mt-3">
                             <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                 @csrf
-                                <button type="submit" class="nav-link w-100 text-start border-0 bg-transparent">
+                                <button type="button" class="nav-link w-100 text-start border-0 bg-transparent"
+                                        data-bs-toggle="modal" data-bs-target="#confirmModal"
+                                        data-confirm-message="Are you sure you want to logout?">
                                     <i class="bi bi-box-arrow-right"></i> Logout
                                 </button>
                             </form>
@@ -114,6 +116,41 @@
         </div>
     </div>
 
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Confirm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="confirmModalBody">Are you sure?</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmModalYes">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const confirmModal = document.getElementById('confirmModal');
+        const confirmModalBody = document.getElementById('confirmModalBody');
+        const confirmModalYes = document.getElementById('confirmModalYes');
+        let confirmTargetForm = null;
+
+        confirmModal.addEventListener('show.bs.modal', function (event) {
+            const trigger = event.relatedTarget;
+            confirmModalBody.textContent = trigger.getAttribute('data-confirm-message') || 'Are you sure?';
+            confirmTargetForm = trigger.closest('form');
+        });
+
+        confirmModalYes.addEventListener('click', function () {
+            if (confirmTargetForm) {
+                confirmTargetForm.submit();
+            }
+            bootstrap.Modal.getInstance(confirmModal).hide();
+        });
+    </script>
 </body>
 </html>
