@@ -11,7 +11,16 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
     Route::name('api.')->group(function () {
-        Route::apiResource('categories', CategoryController::class);
-        Route::apiResource('books', BookController::class);
+        Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+        Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+        Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+        Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+        Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+        Route::get('/books', [BookController::class, 'index'])->name('books.index');
+        Route::post('/books', [BookController::class, 'store'])->name('books.store');
+        Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
+        Route::put('/books/{book}', [BookController::class, 'update'])->name('books.update');
+        Route::delete('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
     });
 });
