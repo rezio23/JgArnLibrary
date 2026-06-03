@@ -8,14 +8,14 @@ use Illuminate\Database\Seeder;
 class AdminUserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Database seeds.
      */
     public function run(): void
     {
-        \App\Models\User::create([
-            'name' => 'Administrator',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('Admin123'),
-        ]);
+        $user = new \App\Models\User();
+        $user->name = 'Administrator';
+        $user->email = 'admin@gmail.com';
+        $user->password = bcrypt('Admin123');
+        $user->save();
     }
 }

@@ -16,7 +16,7 @@ class BookRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Validation
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */

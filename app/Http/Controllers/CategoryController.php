@@ -10,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of categories.
+     * GET
      */
     public function index(): JsonResponse
     {
@@ -22,7 +22,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Store a newly created category.
+     * POST
      */
     public function store(CategoryRequest $request): JsonResponse
     {
@@ -35,7 +35,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified category.
+     * GET ID
      */
     public function show(Category $category): JsonResponse
     {
@@ -45,7 +45,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Update the specified category.
+     * PUT
      */
     public function update(CategoryRequest $request, Category $category): JsonResponse
     {
@@ -58,7 +58,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Remove the specified category.
+     * DELETE
      */
     public function destroy(Category $category): JsonResponse
     {

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     /**
-     * Authenticate admin and return Sanctum token.
+     * Authenticate admin
      */
     public function login(LoginRequest $request): JsonResponse
     {

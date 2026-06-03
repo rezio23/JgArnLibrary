@@ -1,35 +1,50 @@
+
 @extends('layouts.app')
 
 @section('title', 'Dashboard')
 @section('nav-dashboard', 'active')
 
 @section('content')
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>Dashboard</h2>
-</div>
-
 <div class="row g-4">
     <div class="col-md-4">
-        <div class="card stat-card p-4 text-center">
-            <i class="bi bi-book fs-1 text-primary"></i>
-            <h5 class="mt-2 text-muted">Total Books</h5>
-            <h2>{{ $totalBooks }}</h2>
+        <div class="card stat-card">
+            <div class="stat-icon">
+                <i class="bi bi-book"></i>
+            </div>
+            <div class="stat-label">Total Books</div>
+            <div class="stat-value">{{ $totalBooks }}</div>
         </div>
     </div>
 
     <div class="col-md-4">
-        <div class="card stat-card p-4 text-center">
-            <i class="bi bi-tags fs-1 text-success"></i>
-            <h5 class="mt-2 text-muted">Total Categories</h5>
-            <h2>{{ $totalCategories }}</h2>
+        <div class="card stat-card">
+            <div class="stat-icon">
+                <i class="bi bi-tags"></i>
+            </div>
+            <div class="stat-label">Total Categories</div>
+            <div class="stat-value">{{ $totalCategories }}</div>
         </div>
     </div>
 
     <div class="col-md-4">
-        <div class="card stat-card p-4 text-center">
-            <i class="bi bi-box-seam fs-1 text-warning"></i>
-            <h5 class="mt-2 text-muted">Total Quantity</h5>
-            <h2>{{ $totalQty }}</h2>
+        <div class="card stat-card">
+            <div class="stat-icon">
+                <i class="bi bi-box-seam"></i>
+            </div>
+            <div class="stat-label">Total Quantity</div>
+            <div class="stat-value">{{ $totalQty }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body p-5 text-center">
+                <i class="bi bi-book-half" style="font-size: 3rem; color: #e4e4e7;"></i>
+                <h5 class="mt-3" style="color: #a1a1aa; font-weight: 500;">Welcome to JgArn Library</h5>
+                <p class="text-muted mb-0" style="font-size: 0.875rem;">Manage your books and categories from the sidebar.</p>
+            </div>
         </div>
     </div>
 </div>

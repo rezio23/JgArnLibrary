@@ -10,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 class BookController extends Controller
 {
     /**
-     * Display a listing of books.
+     * GET
      */
     public function index(): JsonResponse
     {
@@ -22,7 +22,7 @@ class BookController extends Controller
     }
 
     /**
-     * Store a newly created book.
+     * POST
      */
     public function store(BookRequest $request): JsonResponse
     {
@@ -35,7 +35,7 @@ class BookController extends Controller
     }
 
     /**
-     * Display the specified book.
+     * GET ID
      */
     public function show(Book $book): JsonResponse
     {
@@ -45,7 +45,7 @@ class BookController extends Controller
     }
 
     /**
-     * Update the specified book.
+     * PUT
      */
     public function update(BookRequest $request, Book $book): JsonResponse
     {
@@ -58,7 +58,7 @@ class BookController extends Controller
     }
 
     /**
-     * Remove the specified book.
+     * DELETE
      */
     public function destroy(Book $book): JsonResponse
     {
