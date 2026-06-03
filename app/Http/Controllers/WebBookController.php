@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
+use App\Models\Borrowing;
 use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class WebBookController extends Controller
@@ -16,8 +18,12 @@ class WebBookController extends Controller
     public function index(): View
     {
         $books = Book::with('category')->paginate(10);
+        $borrowedBookIds = Borrowing::where('UserID', Auth::id())
+            ->where('Status', 'borrowed')
+            ->pluck('BookID')
+->toArray();
 
-        return view('books.index', compact('books'));
+        return view('books.index', compact('books', 'borrowedBookIds'));
     }
 
     /**

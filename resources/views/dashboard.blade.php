@@ -37,6 +37,28 @@
     </div>
 </div>
 
+<div class="row g-4 mt-2">
+    <div class="col-md-6">
+        <div class="card stat-card">
+            <div class="stat-icon">
+                <i class="bi bi-arrow-left-right"></i>
+            </div>
+            <div class="stat-label">Active Borrows</div>
+            <div class="stat-value">{{ $activeBorrows }}</div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card stat-card">
+            <div class="stat-icon">
+                <i class="bi bi-clock-history"></i>
+            </div>
+            <div class="stat-label">Total Borrowings</div>
+            <div class="stat-value">{{ $totalBorrowings }}</div>
+        </div>
+    </div>
+</div>
+
 <div class="row mt-4">
     <div class="col-12">
         <div class="card">

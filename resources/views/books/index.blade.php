@@ -35,6 +35,25 @@
                             <td>{{ $book->Qty }}</td>
                             <td>{{ $book->Description ?? '-' }}</td>
                             <td class="text-end">
+                                @if(in_array($book->BookID, $borrowedBookIds))
+                                    <form action="{{ route('return', $book->BookID) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-arrow-return-left"></i> Return
+                                        </button>
+                                    </form>
+                                @elseif($book->Qty > 0)
+                                    <form action="{{ route('borrow', $book->BookID) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-primary">
+                                            <i class="bi bi-bookmark-plus"></i> Borrow
+                                        </button>
+                                    </form>
+                                @else
+                                    <span class="btn btn-sm btn-secondary disabled">
+                                        <i class="bi bi-x-circle"></i> Unavailable
+                                    </span>
+                                @endif
                                 <a href="{{ route('books.edit', $book->BookID) }}" class="btn btn-sm btn-outline-primary">
                                     Edit
                                 </a>

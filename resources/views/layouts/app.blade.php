@@ -546,6 +546,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link @yield('nav-borrowings', '')" href="{{ route('borrowings.index') }}">
+                <i class="bi bi-arrow-left-right"></i>
+                <span>Borrowings</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link @yield('nav-categories', '')" href="{{ route('categories.index') }}">
                 <i class="bi bi-tags"></i>
                 <span>Categories</span>
@@ -579,6 +585,13 @@
           @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
               {{ session('success') }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+          @endif
+
+          @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+              {{ session('error') }}
               <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
           @endif
